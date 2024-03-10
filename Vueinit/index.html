@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.esm-browser.min.js"></script>
+</head>
+
+<body>
+    <!-- vue起手式 -->
+    <div id="app">
+        {{data2}}
+    </div>
+    <div id="app2">
+        {{data}}
+    </div>
+
+    <!-- vue官方文件 https://vuejs.org/guide/quick-start -->
+    <!-- vue起手式01 -->
+    <script type="module">
+        import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.esm-browser.min.js';
+
+        const app = {
+            //資料
+            data() {
+                return {
+                    data2: 'test'
+                }
+            },
+            //方法function
+            methods: {
+
+            },
+            //生命週期
+            mounted() {
+                console.log('初始化');
+                console.log(this);
+            },
+
+        };
+
+        createApp(app)
+            .mount('#app');
+
+    </script>
+    
+    <!-- vue起手式02 -->
+    <script type="module">
+        import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.esm-browser.min.js';
+        createApp({
+            data() {
+                return {
+                    data: 'test2'
+                }
+            }
+        }).mount('#app2')
+    </script>
+
+</body>
+
+</html>
