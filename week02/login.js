@@ -52,7 +52,7 @@ createApp({
 
                 })
                 .catch(err => console.log(err))
-        },
+        }
     },
 }).mount('#app');
 

@@ -11,8 +11,9 @@ createApp({
         }
     },
     mounted() {
-        const token = document.cookie.replace(/(?:(?:^|.*;\s*)yoyocookie\s*\=\s*([^;]*).*$)|^.*$/, "$1",);
-        axios.defaults.headers.common['Authorization'] = token;
+        // 取出 Token
+        const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+        axios.defaults.headers.common.Authorization = token;
         this.check();
     },
     methods: {
@@ -33,7 +34,7 @@ createApp({
                 })
                 .catch(err => console.log(err))
         },
-        detail(item){
+        detail(item) {
             this.temp = item;
         }
     },
