@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app" class="container d-flex flex-column align-items-center">
+        <h1>管理者請先登入</h1>
+        <input id="inputEmail" type="email" placeholder="請輸入電子信箱" required class="w-50 mt-3 form-control" v-model="data.username">
+        <input id="inputPass" type="password" placeholder="請輸入密碼" required class="w-50 mt-3 form-control" v-model="data.password">
+        <input id="loginBtn" type="button" value="登入" class="btn btn-lg btn-dark w-50 mt-3" @click="login">
+    </div>
+    
+
+    <style>
+        * {
+            /*   border:solid 1px #ddd; */
+            font-family: 微軟正黑體;
+            font-size: 20px;
+            padding: 10px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        body {
+            background: #FFD370;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+    <!-- tpye 用 module -->
+    <script src="./login.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"></script>
+
+</body>
+
+</html>
