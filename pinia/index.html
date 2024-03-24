@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>版型製作</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="images/favicon.ico" rel="shortcut icon">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="/javascripts/vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.js"></script>
+</head>
+
+<body class="bg-lighter">
+    <div class="container main my-5">
+        <div class="row">
+            <main class="col post">
+                <!-- 章節標題 -->
+                <div class="mb-4">
+                    <h1 class="mt-0 text-muted">版型製作</h1><small>檔名：<code>layout.html</code></small>
+                </div>
+                <!-- 🔥🔥練習開始🔥🔥 -->
+                <!-- 表頭 -->
+                <!-- <nav class="navbar bg-light">
+                    <div class="container-fluid">
+                        <span class="navbar-brand" href="#">香香麵攤</span>
+                        <button type="button" class="btn nav-link">
+                            購物車
+                            <span class="badge rounded-pill bg-danger text-white">5</span>
+                        </button>
+                    </div>
+                </nav> -->
+
+                <!-- 購物車 -->
+                <!-- <div class="bg-light p-4 my-4">
+                    <div>購物車沒有任何品項</div>
+                    <table class="table align-middle">
+                        <tbody>
+                            <tr>
+                                <td width="100">
+                                    <a href="#" class="text-dark"><i class="fas fa-times"></i></a>
+                                </td>
+                                <td width="100">
+                                    <img src="https://images.unsplash.com/photo-1597733153203-a54d0fbc47de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1090&q=80"
+                                        class="table-image" alt="" />
+                                </td>
+                                <td>爽快快的</td>
+                                <td width="200">
+                                    <select name="" id="" class="form-select">
+                                        <option value="1">1</option>
+                                    </select>
+                                </td>
+                                <td width="200" class="text-end">$900</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-end">總金額 NT$ 1000</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div> -->
+
+                <!-- 產品列表 -->
+                <!-- <div class="row row-cols-3 my-3">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1597733153203-a54d0fbc47de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1090&q=80"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    爽快快的
+                                    <span class="float-end">$60</span>
+                                </h6>
+                                <a href="#" class="btn btn-outline-primary w-100">加入購物車</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <style>
+                    .card-img-top {
+                        object-fit: cover;
+                        height: 200px;
+                    }
+
+                    .table-image {
+                        width: 75px;
+                        height: 75px;
+                        object-fit: cover;
+                    }
+                </style>
+
+                <!-- 🙇🙇練習結束🙇🙇 -->
+            </main>
+
+            <div id="app">
+                <navcomponent></navcomponent>
+                <cartcomponent></cartcomponent>
+                <productcomponent></productcomponent>
+            </div>
+
+        </div>
+    </div>
+    <!-- VueDemi，使用 Pinia 必要的相依套件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-demi/0.13.11/index.iife.js"></script>
+    <script>const I = VueDemi; const vueDemi = VueDemi;</script>
+    <!-- Pinia 網頁版，實戰中還是以 npm 為主，這是比較少見的使用方式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pinia/2.0.22/pinia.iife.js"></script>
+    
+    <script type="module">
+        // console.log('Pinia', Pinia);
+        const { createApp } = Vue;
+        const {createPinia} = Pinia;
+        // import productsstore from '../store/productsstore.js';
+
+        import navcomponent from './components/navcomponent.js';
+        import cartcomponent from './components/cartcomponent.js';
+        import productcomponent from './components/productcomponent.js';
+        // 兩種vue元件方法
+        // const navcomponent = {
+        //     template: `<nav class="navbar bg-light">
+        //             <div class="container-fluid">
+        //                 <span class="navbar-brand" href="#">香香麵攤</span>
+        //                 <button type="button" class="btn nav-link">
+        //                     購物車
+        //                     <span class="badge rounded-pill bg-danger text-white">5</span>
+        //                 </button>
+        //             </div>
+        //         </nav>`
+        // }
+
+        const app = createApp({
+            data() {
+                return {
+                    test: '1230'
+                }
+            },
+            components: {
+                navcomponent,
+                cartcomponent,
+                productcomponent
+            }
+        });
+
+        const pinia = createPinia();
+        app.use(pinia);
+        
+        app.mount('#app');
+
+    </script>
+
+
+
+    <footer class="footer py-2 bg-light">
+        <div class="container text-center">
+            <small class="text-black-50 fw-light mb-0">六角學院 Vue 課程專屬文件</small>
+        </div>
+    </footer>
+    <link rel="stylesheet" href="/stylesheets/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</body>
+
+</html>
